@@ -1,13 +1,18 @@
-new_git_repository(
-  name = "remote_gtest",
-  remote = "https://github.com/bjh83/googletest.git",
-  commit = "7c508e6611f14cbc0da048c0e726870b93b1cc00",
-  build_file = "third_party/gtest.BUILD",
+new_http_archive(
+  name = "gmock_archive",
+  url = "https://googlemock.googlecode.com/files/gmock-1.7.0.zip",
+  sha256 = "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b",
+  build_file = "third_party/gmock.BUILD",
 )
 
 bind(
   name = "gtest",
-  actual = "@remote_gtest//:main",
+  actual = "@gmock_archive//:gtest",
+)
+
+bind(
+  name = "gtest_main",
+  actual = "@gmock_archive//:gtest_main",
 )
 
 new_git_repository(
@@ -21,3 +26,4 @@ bind(
   name = "glog",
   actual = "@remote_glog//:main",
 )
+
