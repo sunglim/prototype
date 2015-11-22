@@ -1,18 +1,19 @@
 cc_library(
-  name = "my_lib",
-  srcs = ["library.cc"],
-  hdrs = ["library.h"],
+  name = "node",
+  srcs = ["node.cc"],
+  hdrs = ["node.h"],
   deps = ["//external:glog"]
 )
 
 cc_binary(
   name = "mains",
   srcs = ["main.cc"],
-  deps = [":my_lib"],
+  deps = [":node"],
 )
 
 cc_test(
   name = "test_harness",
-  srcs = ["my_test.cc"],
-  deps = ["@gtest//:main"],
+  srcs = ["test_main.cc"],
+  copts = ["-Iexternal/gtest"],
+  deps = [":node", "//external:gtest"]
 )
