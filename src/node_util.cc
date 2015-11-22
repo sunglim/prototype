@@ -1,3 +1,5 @@
+// Copyright 2015 Sungguk Lim. All right reserved.
+
 namespace data_structure {
 class Node;
 

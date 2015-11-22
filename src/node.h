@@ -1,6 +1,5 @@
 // Copyright 2015 Sungguk Lim. All right reserved.
 
-//#deps = ["@gtest//:main"],
 #ifndef NODE_H_
 #define NODE_H_
 

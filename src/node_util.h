@@ -1,3 +1,5 @@
+// Copyright 2015 Sungguk Lim. All right reserved.
+
 #include <queue>
 
 #include "glog/logging.h"
@@ -20,7 +22,7 @@ void BinaryTreeToDoublelyLinkedList(BiNode* root) {
   // Do BFS; store node to |queue|.
   std::queue<BiNode*> queue;
   queue.push(root);
-  BiNode* prev = nullptr
+  BiNode* prev = nullptr;
   BiNode* curr = nullptr;
 
   while (!queue.empty()) {

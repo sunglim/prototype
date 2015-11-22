@@ -1,3 +1,5 @@
+// Copyright 2015 Sungguk Lim. All right reserved.
+
 #include <iostream>
 #include <memory>
 
