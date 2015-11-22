@@ -1,6 +1,8 @@
 #include <iostream>
 #include <memory>
 
+#include "glog/logging.h"
+
 #include "src/node.h"
 #include "src/node_util.h"
 
