@@ -11,11 +11,18 @@ void BinaryTreeToDoublelyLinkedList(BiNode* root) {
     LOG(INFO) << "Unexpected nullptr";
     return;
   }
+  if (root->prev == nullptr && root->next == nullptr)
+    return;
+
+  // TimeComplexity is theta(V) = O(n).
+  // Because we have to visit every node.
 
   // Do BFS; store node to |queue|.
   std::queue<BiNode*> queue;
   queue.push(root);
-  BiNode *prev = 0, *curr = 0;
+  BiNode* prev = nullptr
+  BiNode* curr = nullptr;
+
   while (!queue.empty()) {
     curr = queue.front();
     queue.pop();

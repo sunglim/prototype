@@ -5,8 +5,6 @@
 #include "src/node.h"
 #include "src/node_util.h"
 
-using BinarySearchTree = ::testing::Test;
-using NodeUtil = ::testing::Test;
 using data_structure::BiNode;
 
 TEST(BinarySearchTree, CreateBinaryTree) {
@@ -30,8 +28,7 @@ TEST(BinarySearchTree, DeleteNode) {
   EXPECT_EQ(node, nullptr);
 }
 
-TEST(BinarySearchTree, ConvertToDoublely) {
-  // NOTE(sungguk): For more tests, See src/test_main.cc
+TEST(NodeUtil, ConvertToDoublely) {
   std::unique_ptr<BiNode> node(new BiNode(1));
   std::unique_ptr<BiNode> node2(new BiNode(2));
   std::unique_ptr<BiNode> node3(new BiNode(3));
@@ -55,11 +52,21 @@ TEST(BinarySearchTree, ConvertToDoublely) {
 
   BinaryTreeToDoublelyLinkedList(node.get());
 
+  // BFS order.
   int expected[] = {1, 2, 3, 4, 5, 6, 7};
   BiNode* current = node.get();
   for (const auto& num : expected) {
     EXPECT_EQ(current->value, num);
     current = current->next;
+  }
+}
+
+TEST(NodeUtil, SingleNode) {
+  std::unique_ptr<BiNode> node(new BiNode(7));
+  BinaryTreeToDoublelyLinkedList(node.get());
+  // Check if single node can exit this for-loop.
+  for (BiNode* current = node.get(); current != nullptr;
+       current = current->next) {
   }
 }
 
